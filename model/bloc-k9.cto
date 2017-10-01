@@ -1,0 +1,39 @@
+namespace org.acme.block9
+
+participant Person identified by PPSN {
+    o String PPSN
+    o String firstName
+    o String lastName
+    o String phNum
+    o String address
+    o String zip
+}
+
+participant Vet identified by vetId {
+  o String vetId
+  o String vetName
+  o String vetAddress
+}
+
+participant DatabaseProvider identified by dbProviderId {
+  o String dbProviderId
+  --> Vet[] vets
+}
+
+participant Regulator identified by regId {
+  o String regId
+  --> Vet[] regdVets
+  --> DatabaseProvider[] regdDatabaseProviders
+}
+
+asset MicroChip identified by MicroChipID {
+  o String MicroChipID
+  o DateTime BuildDate
+}
+
+asset Animal identified by AnimalId {
+  o String AnimalId
+  --> Person owner
+  --> MicroChip microChip
+  --> DatabaseProvider dbProvider
+}
