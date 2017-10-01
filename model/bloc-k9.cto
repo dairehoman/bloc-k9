@@ -36,7 +36,7 @@ asset MicroChip identified by MicroChipID {
 
 asset Animal identified by AnimalId {
   o String AnimalId
-  --> Person owner
+  --> Person owner optional
   --> MicroChip microChip
-  --> DatabaseProvider dbProvider
+  --> Breeder breeder
 }
