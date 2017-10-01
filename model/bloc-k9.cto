@@ -2,22 +2,21 @@ namespace org.acme.block9
 
 participant Person identified by PPSN {
     o String PPSN
-    o String firstName
-    o String lastName
+    o String name
     o String phNum
     o String address
-    o String zip
 }
 
 participant Vet identified by vetId {
   o String vetId
   o String vetName
   o String vetAddress
+  --> DatabaseProvider databaseProvider
 }
 
 participant DatabaseProvider identified by dbProviderId {
   o String dbProviderId
-  --> Vet[] vets
+  --> MicroChip[] microChips
 }
 
 participant Regulator identified by regId {
@@ -26,9 +25,13 @@ participant Regulator identified by regId {
   --> DatabaseProvider[] regdDatabaseProviders
 }
 
+participant Breeder identified by breederId {
+  	o String breederId
+	--> MicroChip[] microChips
+}
+
 asset MicroChip identified by MicroChipID {
   o String MicroChipID
-  o DateTime BuildDate
 }
 
 asset Animal identified by AnimalId {
