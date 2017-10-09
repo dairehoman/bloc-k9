@@ -2,7 +2,7 @@
 
 This business network defines:
 
-**Participants**
+**Participants**   
 ```Person/Owner```  
 ```Vet``` 
 ```DatabaseProvider```  
